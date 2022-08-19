@@ -1,4 +1,5 @@
 const Item = require("./assets/Classes/Item");
+const Item = require("./assets/Classes/JobsItems");
 
 async function get_frame_fr(){
     let tmp_frame;
