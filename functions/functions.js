@@ -182,7 +182,11 @@ function load_itemslist() {
 console.log("Parsing jobsitems JSON: ✔");
 
         parsed_jobsitems.forEach((jobsitem => {
-          let name_fr = jobsitem["title"]["fr"];
+          let name_fr;
+          if(jobsitem["title"]) {
+              name_fr = jobsitem["title"]["fr"];
+          };
+
           list_items.push(new JobsItems.JobsItems(
               name_fr
             ));
