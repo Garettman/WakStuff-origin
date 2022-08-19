@@ -171,6 +171,27 @@ async function set_prefix(message, a_prefix, collection) {
 function load_itemslist() {
     //#region parsing JSON
     console.log("Loading items... ⏳");
+    let parsed_jobsitems
+    fs.readFile('', (err, jobsitems) => {
+      parsed_jobsitems = JSON.parse(jobsitems);
+      console.log("Parsing jobsitems JSON: ✔");
+    })
+    let parsed_reciperesults
+    fs.readFile('', (err, reciperesults) => {
+      parsed_reciperesults = JSON.parse(reciperesults);
+      console.log("Parsing reciperesults JSON: ✔");
+    })
+    let parsed_recipeingredients
+    fs.readFile('', (err, recipeingredients) => {
+      parsed_recipeingredients = JSON.parse(recipeingredients);
+      console.log("Parsing recipeingredients JSON: ✔");
+    })
+    let parsed_recipes
+    fs.readFile('', (err, recipes) => {
+      parsed_recipes = JSON.parse(recipes);
+      console.log("Parsing recipes JSON: ✔");
+    })
+
     let parsed_items;
     let parsed_actions;
     fs.readFile('assets/JSON/items.json', (err, items) => {
@@ -179,7 +200,7 @@ function load_itemslist() {
             parsed_actions = JSON.parse(actions);
             console.log("Parsing JSON: ✔");
 
-            //#region items creation. 
+            //#region items creation.
             parsed_items.forEach(item => {
                 let rarity_number = item['definition']['item']['baseParameters']['rarity'];
                 let rarity
@@ -228,7 +249,7 @@ function load_itemslist() {
                             if (item['definition']['item']['baseParameters']['itemTypeId'] === 582) {
                                 level += 50
                             }
-                            
+
                             if(action['description'] != null) {
                                 stats_fr = action['description']["fr"];
                                 stats_fr = stats_fr.replace('[~3]?[#1] Maîtrise [#3]:', "");
@@ -348,7 +369,7 @@ function load_itemslist() {
                 if(item['description'] != null) {
                     description_en = "*" + item['description']["en"] + "*";
                 }
-                    
+
                 let sorted_stats_fr = [];
                 let sorted_stats_en = [];
 
@@ -373,15 +394,15 @@ function load_itemslist() {
 
                 //console.log(sorted_stats_en)
                 list_items.push(new Item.Item(
-                    name_fr, 
-                    name_en, 
-                    rarity, 
-                    color, 
-                    level, 
-                    description_fr, 
-                    description_en, 
-                    sorted_stats_fr, 
-                    sorted_stats_en, 
+                    name_fr,
+                    name_en,
+                    rarity,
+                    color,
+                    level,
+                    description_fr,
+                    description_en,
+                    sorted_stats_fr,
+                    sorted_stats_en,
                     "https://vertylo.github.io/wakassets/items/" + item['definition']['item']['graphicParameters']['gfxId'].toString() + ".png"
                 ));
             });
