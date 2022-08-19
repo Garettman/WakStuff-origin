@@ -62,6 +62,28 @@ client.on('message', async message => {
 
     }
 
+    if (command === 'job') {
+
+
+      let find_object = false;
+      let list_found = [];
+
+      list_items.forEach(jobsitem => {
+          if(jobsitem.name_fr && jobsitem.name_fr.toLowerCase().includes(args.join(" ").toLowerCase())) {
+              find_object = true;
+              list_found.push(item);
+          }
+      })
+
+          if (list_found.length === 1) {
+                      let embed = new Discord.MessageEmbed().setTitle(list_found[0].name_fr + " "  + i18next.t("level") + " " + list_found[0].level)
+                      message.channel.send({embeds: [embed.toJSON()]});
+                  }
+
+
+
+    }
+
     if (command === 'search') {
         if (args.length < 1) {
             return message.channel.send(i18next.t('notenougharguments'));
@@ -288,7 +310,7 @@ client.on('message', async message => {
                             message.channel.send(i18next.t("timesup"))
                         }
                     });
-                    
+
                     const filter_item2 = m => {
                         return answer_name.includes(m.content);
                     };
@@ -376,7 +398,7 @@ client.on('message', async message => {
                                     message.channel.send(i18next.t("timesup"))
                                 }
                             });
-                                   
+
                             if (find_object1 && find_object2) {
                                 let tabStats1 = []
                                 let tabStats2 = []
@@ -488,11 +510,11 @@ client.on('message', async message => {
                 })
             }).catch(collected => {
                 message.channel.send(i18next.t("timesup"));
-            });                
+            });
         }
     }
     */
-    
+
     if(command === "help") {
         if(args.length === 0) {
             let embed_message = new Discord.MessageEmbed()
