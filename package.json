@@ -1,0 +1,38 @@
+{
+  "name": "wakstuff-v2",
+  "version": "1.0.0",
+  "description": "retrieve and compare gears from Wakfu",
+  "main": "Wakstuff.js",
+  "dependencies": {
+    "axios": "^0.21.2",
+    "cheerio": "^1.0.0-rc.5",
+    "discord.js": "^13.10.2",
+    "dotenv": "^9.0.0",
+    "fs": "^0.0.1-security",
+    "i18next": "^20.1.0",
+    "jsonframe-cheerio": "^3.0.1",
+    "mongodb": "^3.6.5",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elio-centrique/WakStuff-V2.git"
+  },
+  "keywords": [
+    "Wakfu",
+    "WakStuff"
+  ],
+  "author": "Elio-Centrique",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elio-centrique/WakStuff-V2/issues"
+  },
+  "homepage": "https://github.com/elio-centrique/WakStuff-V2#readme",
+  "engines": {
+    "node": "16.x"
+  }
+}
