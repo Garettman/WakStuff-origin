@@ -71,7 +71,7 @@ client.on('message', async message => {
       list_items.forEach(jobsitem => {
           if(jobsitem.name_fr && jobsitem.name_fr.toLowerCase().includes(args.join(" ").toLowerCase())) {
               find_object = true;
-              list_found.push(item);
+              list_found.push(jobsitem);
           }
       })
 
