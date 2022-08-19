@@ -74,9 +74,15 @@ client.on('message', async message => {
               list_found.push(jobsitem);
           }
       })
+      list_items.forEach(reciperesult => {
+          if(reciperesult.producted_item_id && reciperesult.producted_item_id.toLowerCase().includes(args.join(" ").toLowerCase())) {
+              find_object = true;
+              list_found.push(reciperesult);
+          }
+      })
 
           if (list_found.length === 1) {
-                      let embed = new Discord.MessageEmbed().setTitle(list_found[0].name_fr)
+                      let embed = new Discord.MessageEmbed().setTitle(list_found[0].producted_item_id)
                       message.channel.send({embeds: [embed.toJSON()]});
                   }
 

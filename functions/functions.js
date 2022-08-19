@@ -1,5 +1,6 @@
 const Item = require("./assets/Classes/Item");
 const JobsItems = require("./assets/Classes/JobsItems");
+const RecipeResults = require("./assets/Classes/RecipeResults");
 
 async function get_frame_fr(){
     let tmp_frame;
@@ -204,7 +205,20 @@ console.log("jobsitems loaded! ✔");
       parsed_reciperesults = JSON.parse(reciperesults);
       console.log("Parsing reciperesults JSON: ✔");
 
+      parsed_reciperesults.forEach((reciperesult => {
+        let producted_item_id;
+        if(reciperesult["productedItemId"]) {
+            producted_item_id = reciperesult["productedItemId"];
+        };
 
+        list_items.push(new RecipeResults.RecipeResults(
+            producted_item_id
+          ));
+      console.log("reciperesults loaded! ✔");
+
+
+
+      }));
 
 
     })
