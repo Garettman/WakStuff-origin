@@ -76,7 +76,7 @@ client.on('message', async message => {
       })
 
           if (list_found.length === 1) {
-                      let embed = new Discord.MessageEmbed().setTitle(list_found[0].name_fr + " "  + i18next.t("level") + " " + list_found[0].level)
+                      let embed = new Discord.MessageEmbed().setTitle(list_found[0].name_fr)
                       message.channel.send({embeds: [embed.toJSON()]});
                   }
 
