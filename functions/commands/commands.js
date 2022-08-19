@@ -68,16 +68,17 @@ client.on('message', async message => {
       let find_object = false;
       let list_found = [];
 
-      list_items.forEach(jobsitem => {
-          if(jobsitem.name_fr && jobsitem.name_fr.toLowerCase().includes(args.join(" ").toLowerCase())) {
-              find_object = true;
-              list_found.push(jobsitem);
-          }
-      })
       list_items.forEach(reciperesult => {
           if(reciperesult.producted_item_id && reciperesult.producted_item_id.toLowerCase().includes(args.join(" ").toLowerCase())) {
               find_object = true;
               list_found.push(reciperesult);
+          }
+      })
+
+      list_items.forEach(jobsitem => {
+          if(jobsitem.name_fr && jobsitem.name_fr.toLowerCase().includes(args.join(" ").toLowerCase())) {
+              find_object = true;
+              list_found.push(jobsitem);
           }
       })
 

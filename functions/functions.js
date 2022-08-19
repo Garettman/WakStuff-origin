@@ -208,7 +208,7 @@ console.log("jobsitems loaded! ✔");
       parsed_reciperesults.forEach((reciperesult => {
         let producted_item_id;
         if(reciperesult["productedItemId"]) {
-            producted_item_id = reciperesult["productedItemId"];
+            producted_item_id = reciperesult["productedItemId"].toString();
         };
 
         list_items.push(new RecipeResults.RecipeResults(
