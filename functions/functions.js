@@ -175,6 +175,8 @@ function load_itemslist() {
     fs.readFile('', (err, jobsitems) => {
       parsed_jobsitems = JSON.parse(jobsitems);
       console.log("Parsing jobsitems JSON: ✔");
+      parsed_jobsitems.forEach(jobsitem => {
+          
     })
     let parsed_reciperesults
     fs.readFile('', (err, reciperesults) => {
