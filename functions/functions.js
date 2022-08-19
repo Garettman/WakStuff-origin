@@ -172,24 +172,22 @@ function load_itemslist() {
     //#region parsing JSON
     console.log("Loading items... ⏳");
     let parsed_jobsitems
-    fs.readFile('', (err, jobsitems) => {
+    fs.readFile('assets/JSON/jobsItems.json', (err, jobsitems) => {
       parsed_jobsitems = JSON.parse(jobsitems);
       console.log("Parsing jobsitems JSON: ✔");
-      parsed_jobsitems.forEach(jobsitem => {
-          
     })
     let parsed_reciperesults
-    fs.readFile('', (err, reciperesults) => {
+    fs.readFile('assets/JSON/recipeResults.json', (err, reciperesults) => {
       parsed_reciperesults = JSON.parse(reciperesults);
       console.log("Parsing reciperesults JSON: ✔");
     })
     let parsed_recipeingredients
-    fs.readFile('', (err, recipeingredients) => {
+    fs.readFile('assets/JSON/recipeIngredients.json', (err, recipeingredients) => {
       parsed_recipeingredients = JSON.parse(recipeingredients);
       console.log("Parsing recipeingredients JSON: ✔");
     })
     let parsed_recipes
-    fs.readFile('', (err, recipes) => {
+    fs.readFile('assets/JSON/recipes.json', (err, recipes) => {
       parsed_recipes = JSON.parse(recipes);
       console.log("Parsing recipes JSON: ✔");
     })
