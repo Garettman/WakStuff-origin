@@ -175,53 +175,42 @@ function load_itemslist() {
     console.log("Loading items... ⏳");
 
 
-    let parsed_jobsitems
+    let parsed_jobsitems;
+    let parsed_reciperesults;
+
     fs.readFile('assets/JSON/jobsItems.json', (err, jobsitems) => {
-
       parsed_jobsitems = JSON.parse(jobsitems);
-
-console.log("Parsing jobsitems JSON: ✔");
-
-        parsed_jobsitems.forEach((jobsitem => {
-          let name_fr;
-          if(jobsitem["title"]) {
-              name_fr = jobsitem["title"]["fr"];
-          };
-
-          list_items.push(new JobsItems.JobsItems(
-              name_fr
-            ));
-
-
-
-        }));
-        console.log("jobsitems loaded! ✔");
-
-
-
+      console.log("Parsing jobsitems JSON: ✔");
+            fs.readFile('assets/JSON/recipeResults.json', (err, reciperesults) => {
+              parsed_reciperesults = JSON.parse(reciperesults);
+              console.log("Parsing reciperesults JSON: ✔");
+                  parsed_reciperesults.forEach(reciperesult => {
+                    let name_fr;
+                    let producted_item_id;
+                    if(reciperesult["productedItemId"]) {
+                        producted_item_id = reciperesult["productedItemId"];
+                    };
+                    list_reciperesults.push(new RecipeResults.RecipeResults(
+                        producted_item_id
+                    ));
+                  });
+              console.log("reciperesults loaded! ✔");
+            })
+                  parsed_jobsitems.forEach((jobsitem => {
+                    let name_fr;
+                    if(jobsitem["title"]) {
+                        name_fr = jobsitem["title"]["fr"];
+                    };
+                    if(jobsitem["definition"]["id"] === reciperesult["productedItemId"]) {
+                        list_reciperesults.push(new RecipeResults.RecipeResults(
+                            name_fr
+                            producted_item_id
+                        ))
+                    }
+                  }));
+              console.log("jobsitems loaded! ✔");
     })
-    let parsed_reciperesults
-    fs.readFile('assets/JSON/recipeResults.json', (err, reciperesults) => {
-      parsed_reciperesults = JSON.parse(reciperesults);
-      console.log("Parsing reciperesults JSON: ✔");
 
-      parsed_reciperesults.forEach((reciperesult => {
-        let producted_item_id;
-        if(reciperesult["productedItemId"]) {
-            producted_item_id = reciperesult["productedItemId"];
-        };
-
-        list_items.push(new RecipeResults.RecipeResults(
-            producted_item_id
-          ));
-
-
-
-      }));
-      console.log("reciperesults loaded! ✔");
-
-
-    })
     let parsed_recipeingredients
     fs.readFile('assets/JSON/recipeIngredients.json', (err, recipeingredients) => {
       parsed_recipeingredients = JSON.parse(recipeingredients);

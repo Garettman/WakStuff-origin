@@ -69,7 +69,7 @@ client.on('message', async message => {
               let find_object = false;
               let list_found = [];
 
-              list_items.forEach(item => {
+              list_reciperesults.forEach(item => {
                   if(item.name_fr && item.name_fr.toLowerCase().includes(args.join(" ").toLowerCase())) {
                       find_object = true;
                       list_found.push(item);
