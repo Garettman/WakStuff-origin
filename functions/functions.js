@@ -191,11 +191,11 @@ console.log("Parsing jobsitems JSON: ✔");
           list_items.push(new JobsItems.JobsItems(
               name_fr
             ));
-console.log("jobsitems loaded! ✔");
 
 
 
         }));
+        console.log("jobsitems loaded! ✔");
 
 
 
@@ -214,11 +214,11 @@ console.log("jobsitems loaded! ✔");
         list_items.push(new RecipeResults.RecipeResults(
             producted_item_id
           ));
-      console.log("reciperesults loaded! ✔");
 
 
 
       }));
+      console.log("reciperesults loaded! ✔");
 
 
     })

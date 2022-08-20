@@ -69,19 +69,6 @@ client.on('message', async message => {
       let list_found = [];
 
 
-      list_items.forEach(jobsitem => {
-          if(jobsitem.name_fr && jobsitem.name_fr.toLowerCase().includes(args.join(" ").toLowerCase())) {
-              find_object = true;
-              list_found.push(jobsitem);
-          }
-      })
-
-          if (list_found.length === 1) {
-                      let embed = new Discord.MessageEmbed().setTitle(list_found[0].producted_item_id)
-                      message.channel.send({embeds: [embed.toJSON()]});
-                  }
-
-
 
     }
 
