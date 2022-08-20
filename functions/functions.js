@@ -185,14 +185,14 @@ function load_itemslist() {
               parsed_reciperesults = JSON.parse(reciperesults);
               console.log("Parsing reciperesults JSON: ✔");
                   parsed_reciperesults.forEach(reciperesult => {
-                    let name_fr;
                     let producted_item_id;
                     if(reciperesult["productedItemId"]) {
                         producted_item_id = reciperesult["productedItemId"];
                     };
                     parsed_jobsitems.forEach(jobsitem => {
+                      let name_fr;
                       if(jobsitem["title"]) {
-                          name_fr = jobsitem["title"]["fr"];
+                        name_fr = jobsitem["title"]["fr"];
                       };
                       if(jobsitem["definition"]["id"] === reciperesult["productedItemId"]) {
                           list_reciperesults.push(new RecipeResults.RecipeResults(
