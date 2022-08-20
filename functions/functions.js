@@ -190,24 +190,21 @@ function load_itemslist() {
                     if(reciperesult["productedItemId"]) {
                         producted_item_id = reciperesult["productedItemId"];
                     };
-                    list_reciperesults.push(new RecipeResults.RecipeResults(
-                        producted_item_id
-                    ));
+                    parsed_jobsitems.forEach(jobsitem => {
+                      if(jobsitem["title"]) {
+                          name_fr = jobsitem["title"]["fr"];
+                      };
+                      if(jobsitem["definition"]["id"] === reciperesult["productedItemId"]) {
+                          list_reciperesults.push(new RecipeResults.RecipeResults(
+                              name_fr
+                              producted_item_id
+                          ));
+                      }
+                    });
                   });
               console.log("reciperesults loaded! ✔");
             })
-                  parsed_jobsitems.forEach((jobsitem => {
-                    let name_fr;
-                    if(jobsitem["title"]) {
-                        name_fr = jobsitem["title"]["fr"];
-                    };
-                    if(jobsitem["definition"]["id"] === reciperesult["productedItemId"]) {
-                        list_reciperesults.push(new RecipeResults.RecipeResults(
-                            name_fr
-                            producted_item_id
-                        ))
-                    }
-                  }));
+
               console.log("jobsitems loaded! ✔");
     })
 

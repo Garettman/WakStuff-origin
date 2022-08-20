@@ -69,7 +69,7 @@ client.on('message', async message => {
               let find_object = false;
               let list_found = [];
 
-              list_reciperesults.forEach(item => {
+              list_reciperesults.forEach(reciperesult => {
                   if(item.name_fr && item.name_fr.toLowerCase().includes(args.join(" ").toLowerCase())) {
                       find_object = true;
                       list_found.push(item);
@@ -148,11 +148,7 @@ client.on('message', async message => {
                               try {
                                   if (lang === "fr") {
                                       let embed_item = new Discord.MessageEmbed()
-                                          .setTitle(list_found[parseInt(collected.values[0])].name_fr + " "  + i18next.t("level") + " " + list_found[parseInt(collected.values[0])].level)
-                                          .setDescription(list_found[parseInt(collected.values[0])].get_message_stats(lang))
-                                          .setColor(list_found[parseInt(collected.values[0])].color)
-                                          .addField("Description: ", list_found[parseInt(collected.values[0])].description_fr)
-                                          .setImage(list_found[parseInt(collected.values[0])].image)
+                                          .setTitle(list_found[parseInt(collected.values[0])].name_fr + " "  + list_found[parseInt(collected.values[0])].producted_item_id)
                                       message.channel.send({
                                           embeds: [embed_item.toJSON()]
                                       });
